@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="@ViewBag.InitModule">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    @*<link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />*@
+    <link href="~/Content/bootstrap-combined.min.css" rel="stylesheet" />
+    @* Below is for rating directive *@
+    @*<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">*@
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/app.css" rel="stylesheet" />
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+</head>
+<body>
+    <header id="top">
+        <nav class="navbar navbar-inverse navbar-fixed-top cbp-af-header"
+             role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                            data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#top">
+                        <img src="~/images/rsz_movie-review.png" />
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#/">Home</a></li>
+                        <li><a href="#/movies">Movies</a></li>
+                        <li><a href="#/aboutapp">About APP</a></li>
+                        <!--<li><a href="#activities">Activities</a></li>-->
+                        <li><a href="#/contactme">Contact Me</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+    </header>
+
+    <div class="container-fluid">
+
+        <section class="row title-row">
+
+            <div class="stellar-bg"
+                 style="background-image: url(../../images/movie-background.jpg); height: 550px; background-size:cover"
+                 data-stellar-background-ratio="0.2">
+                <div class="down-button">
+                    <a class="btn" href="#sights">
+                        <i class="fa fa-arrow-circle-down fa-3x" style="color: black" ></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="sights" class="row text-banner">
+            <div>
+                @RenderBody()
+            </div>
+        </section>
+
+    </div>
+
+
+    <footer class="container-fluid">
+        <div class="row">
+            <div id="copyright">
+
+                &copy; <a href="http://myview.rahulnivi.net"> My View </a> All rights reserved
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/cbpAnimatedHeader.js"></script>
+    <script src="~/Scripts/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/jquery.stellar.js"></script>
+    <script src="~/Scripts/scrolling.js"></script>
+    @*<script src="~/Scripts/angular.js"></script>*@
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/Scripts/ui-bootstrap-tpls.min.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    @*<script src="~/Scripts/angular-ui-bootstrap.js"></script>*@
+    <script src="~/Scripts/ui-bootstrap-tpls-0.3.0.min.js"></script>
+    @*<script src="~/Scripts/ui-bootstrap-tpls-0.12.0.js"></script>*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

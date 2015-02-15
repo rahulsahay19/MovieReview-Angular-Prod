@@ -1,0 +1,64 @@
+﻿<div class="container">
+    <button type="button" id="addReview" value="addReview" ng-click="goToAddReview()">
+        <i class="fa fa-plus btn btn-link">  Add New Review </i>
+    </button>
+
+</div>
+
+<br />
+<div>
+
+    <div class="row">
+
+        <div id="loader" style="display: none">
+            <i class="fa fa-cog fa-fw fa-spin fa-2x"> </i> Getting Reviews
+        </div>
+
+        <div>
+            No of Reviews:- {{reviews.length}}
+        </div>
+        <br />
+        <form class="form-horizontal" name="reviewsForm" role="form">
+            <fieldset>
+                <div class="panel panel-primary">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading"><b>Reviews</b></div>
+                    <div class="panel-body">
+                        <table class="table table-hover table-striped table-condensed table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Reviewer Name</th>
+                                    <th>Reviewer Comments</th>
+                                    <th>Reviewer Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="i in filteredReviews">
+                                    <td>
+                                        {{i.ReviewerName}}
+                                    </td>
+                                    <td>
+                                        {{i.ReviewerComments}}
+                                    </td>
+                                    <td>
+                                        {{i.ReviewerRating}}
+                                    </td>
+                                    <td>
+                                        <a data-ng-href="#/editReview/{{i.Id}}" class="btn btn-info">Edit</a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div data-pagination="" data-num-pages="numPages()"
+                             data-current-page="currentPage" data-max-size="maxSize"
+                             data-boundary-links="true"></div>
+                    </div>
+                </div>
+
+
+            </fieldset>
+        </form>
+    </div>
+</div>
+

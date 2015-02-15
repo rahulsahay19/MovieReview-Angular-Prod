@@ -1,0 +1,48 @@
+﻿<div id="loader" style="display: none">
+    <i class="fa fa-cog fa-fw fa-spin fa-2x"> </i> Saving Review
+</div>
+<form class="form-horizontal" name="newReviewForm" novalidate role="form" ng-submit="saveReview()">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><b>Add New Review</b></div>
+        <div class="panel-body">
+            <fieldset>
+                <div class="form-group" ng-class="{'has-error' : newReviewForm.ReviewerName.$invalid}">
+                    <label for="ReviewerName" class="col-sm-3 control-label">Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="ReviewerName" name="ReviewerName" class="form-control" ng-model="newReview.ReviewerName" required ng-minlength="5" />
+                        <span class="help-block" ng-show="newReviewForm.ReviewerName.$error.required"><i class="fa fa-star"></i></span>
+                        <span class="input-validation-error" ng-show="newReviewForm.ReviewerName.$error.minlength">Please enter 5 Characters Reviewer Name</span>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-class="{'has-error' : newReviewForm.ReviewerComments.$invalid}">
+                    <label for="ReviewerComments" class="col-sm-3 control-label">Comments</label>
+                    <div class="col-sm-8">
+                        <textarea id="ReviewerComments" name="ReviewerComments" class="form-control" ng-model="newReview.ReviewerComments" required ng-minlength="15"></textarea>
+                        <span class="input-validation-error" ng-show="newReviewForm.ReviewerComments.$error.required"><i class="fa fa-star"></i></span>
+                        <span class="input-validation-error" ng-show="newReviewForm.ReviewerComments.$error.minlength">Please enter 15 Characters Comments atleast!</span>
+                    </div>
+                </div>
+                
+                <div class="form-group" ng-class="{'has-error' : newReviewForm.ReviewerRating.$invalid}">
+                    <label for="ReviewerRating" class="col-sm-3 control-label">Rating</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="ReviewerRating" name="ReviewerRating" class="form-control" ng-model="newReview.ReviewerRating" required ng-pattern="/^[0-5]$/" />
+                        <span class="input-validation-error" ng-show="newReviewForm.ReviewerRating.$error.required"><i class="fa fa-star"></i></span>
+                        <span class="input-validation-error" ng-show="newReviewForm.ReviewerRating.$error.pattern">Please enter rating between 1-5</span>
+                     </div>
+                </div>
+
+                <div class="container">
+                    <button type="submit" id="addNewReview" value="addNewReview" ng-disabled="newReviewForm.$invalid">
+                        <i class="fa fa-plus btn btn-primary"> Add Review</i>
+                    </button>
+
+                    <button type="button" id="cancelMovie" value="cancelReview" ng-click="cancelReview()">
+                        <i class="fa fa-undo btn btn-link">Cancel</i>
+                    </button>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</form>

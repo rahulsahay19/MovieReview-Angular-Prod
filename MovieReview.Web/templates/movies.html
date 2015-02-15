@@ -1,0 +1,58 @@
+﻿<div class="container">
+    <button type="button" id="addMovie" value="addMovie" ng-click="addMovie()">
+        <i class="fa fa-plus btn btn-link"> Add Movie</i>
+    </button>
+    
+</div>
+
+<br/>
+
+<div id="loader" style="display: none">
+    <i class="fa fa-cog fa-fw fa-spin fa-2x"> </i> Getting Movies
+</div>
+<br/>
+<form class="form-horizontal" name="movieForm" role="form">
+    <fieldset>
+        <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading"><b>Movies</b></div>
+            <div class="panel-body">
+                <table class="table table-hover table-striped table-condensed table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Movie Name</th>
+                            <th>Director Name</th>
+                            <th>Release Year</th>
+                            <th>Edit</th>
+                            <th>Reviews</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="i in filteredMovies">
+                            <td>
+                                {{i.MovieName}}
+                            </td>
+                            <td>
+                                {{i.DirectorName}}
+                            </td>
+                            <td>
+                                {{i.ReleaseYear}}
+                            </td>
+                            <td>
+                                <a data-ng-href="#/editMovie/{{i.Id}}" class="btn btn-info">Edit</a>
+                            </td>
+                            <td>
+                                <a data-ng-href="#/reviews/{{i.Id}}" class="btn btn-info">Reviews</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div data-pagination="" data-num-pages="numPages()"
+                     data-current-page="currentPage" data-max-size="maxSize"
+                     data-boundary-links="true"></div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+    

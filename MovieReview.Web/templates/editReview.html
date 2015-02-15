@@ -1,0 +1,63 @@
+﻿<form class="form-horizontal" name="editReviewForm" novalidate role="form" data-ng-submit="editReview()">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><b>Edit Review</b></div>
+        <div class="panel-body">
+            <fieldset>
+                <div class="form-group" style="display: none">
+                    <label for="MovieID" class="col-sm-3 control-label">Review ID</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="MovieID" name="MovieID" class="form-control" value="{{review.Id}}" ng-model="review.Id" readonly />
+
+                    </div>
+                </div>
+
+                <div class="form-group" ng-class="{'has-error' : editReviewForm.ReviewerName.$invalid}">
+                    <label for="ReviewerName" class="col-sm-3 control-label">Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="ReviewerName" name="ReviewerName" class="form-control" ng-model="review.ReviewerName" value="{{review.ReviewerName}}" required ng-minlength="5" />
+                        <span class="help-block" ng-show="editReviewForm.ReviewerName.$error.required"><i class="fa fa-star"></i></span>
+                        <span class="input-validation-error" ng-show="editReviewForm.ReviewerName.$error.minlength">Please enter 5 Reviewer Name</span>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-class="{'has-error' : editReviewForm.ReviewerComments.$invalid}">
+                    <label for="ReviewerComments" class="col-sm-3 control-label">Comments</label>
+                    <div class="col-sm-9">
+                        <textarea id="ReviewerComments" name="ReviewerComments" class="form-control" ng-model="review.ReviewerComments" value="{{review.ReviewerComments}}" required ng-minlength="15"></textarea>
+                        <span class="input-validation-error" ng-show="editReviewForm.ReviewerComments.$error.required"><i class="fa fa-star"></i></span>
+                        <span class="input-validation-error" ng-show="editReviewForm.ReviewerComments.$error.minlength">Please enter 15 character comment atleast!</span>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-class="{'has-error' : editReviewForm.ReviewerRating.$invalid}">
+                    <label for="ReviewerRating" class="col-sm-3 control-label">Rating</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="ReviewerRating" name="ReviewerRating" class="form-control" ng-model="review.ReviewerRating" value="{{review.ReviewerRating}}" required ng-pattern="/^[0-5]$/" />
+                        <span class="input-validation-error" ng-show="editReviewForm.ReviewerRating.$error.required"><i class="fa fa-star"></i></span>
+                        <span class="input-validation-error" ng-show="editReviewForm.ReviewerRating.$error.pattern">Please enter rating between 1-5</span>
+                    </div>
+                </div>
+
+                <div class="form-group" style="display: none">
+                    <label for="ReviewerMovieId">Movie Id</label>
+
+                    <input name="ReviewerMovieId" type="text" value="{{review.MovieId}}" data-ng-model="review.MovieId" required readonly />
+
+                </div>
+
+                <div class="container">
+                    <button type="submit" id="updateReview" value="updateReview" ng-disabled="editReviewForm.$invalid">
+                        <i class="fa fa-edit btn btn-primary"> Update Review</i>
+                    </button>
+                    <button type="button" id="deleteMovie" value="deleteMovie" data-ng-click="deleteReview()">
+                        <i class="fa fa-minus btn btn-danger"> Delete Review</i>
+                    </button>
+                    <button type="button" id="cancelReview" value="cancelReview" ng-click="cancelReview()">
+                        <i class="fa fa-undo btn btn-link"> Cancel</i>
+                    </button>
+                </div>
+              </fieldset>
+        </div>
+    </div>
+
+</form>
