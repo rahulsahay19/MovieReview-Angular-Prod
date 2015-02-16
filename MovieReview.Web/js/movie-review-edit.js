@@ -25,7 +25,7 @@ var movieEditController = ["$scope", "dataService", "$window", "$routeParams",
         $scope.movie = null;
         $scope.MovieId = null;
 
-        $scope.cancelMovie=function() {
+        $scope.cancelMovie = function () {
             $window.location = "/#movies";
         }
         //Fetch the Movie by id
@@ -39,19 +39,30 @@ var movieEditController = ["$scope", "dataService", "$window", "$routeParams",
                     toastr.error("Error Fetching Movie with Id:", +$routeParams.Id);
                 });
 
+        //Making Spinner On
+        $('#loader').show();
         //Editing the Movie
-        $scope.editMovie = function () {
-            dataService.movieEdit($scope.movie)
+        //Timeout function to show spinner
+        setTimeout(function () {
+            $scope.editMovie = function () {
+                $('#loader1').show();
+                dataService.movieEdit($scope.movie)
+                    .then(function () {
+                        //Success
+                        toastr.success("Movie Updated Successfully!");
+                        $window.location = "#/movies";
+                    }, function () {
+                        //Error
+                        toastr.error("Error in Updating Movie");
+                    })
                 .then(function () {
-                    //Success
-                    toastr.success("Movie Updated Successfully!");
-                    $window.location = "#/movies";
-                }, function () {
-                    //Error
-                    toastr.error("Error in Updating Movie");
+                    $('#loader1').hide();
                 });
-        }
+            }
 
+            $('#loader').hide();
+
+        }, 1000);
         //Deleting the movie
         $scope.deleteMovie = function () {
             dataService.removeMovie($scope.movie.Id)
@@ -87,20 +98,30 @@ var revieweditController = [
              });
 
         //Editing the Review
-        $scope.editReview = function () {
+        //Making Spinner On
+        $('#loader').show();
+        //Timeout function to show spinner
+        setTimeout(function () {
+            $scope.editReview = function () {
+                $('#loader1').show();
+                dataService.updateReview($scope.review)
+                    .then(function () {
+                        //success
+                        toastr.success("Review edited Successfully");
+                        $window.location = "#/movies";
 
-            dataService.updateReview($scope.review)
+                    },
+                        function () {
+                            //error
+                            toastr.error("Error in editing the Review");
+                        })
                 .then(function () {
-                    //success
-                    toastr.success("Review edited Successfully");
-                    $window.location = "#/movies";
+                    $('#loader1').hide();
+                });
+            };
+            $('#loader').hide();
 
-                },
-                    function () {
-                        //error
-                        toastr.error("Error in editing the Review");
-                    });
-        };
+        }, 1000);
 
         //Deleting the review
         $scope.deleteReview = function () {
