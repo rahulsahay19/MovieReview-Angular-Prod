@@ -6,31 +6,31 @@ Client-Side Technologies
 
 ***
 
-• HTML 5 & CSS
-• Modernizer & LESS
-• Media Queries
-• Responsive Design
-• Angular JS
-• Toastr JS
-• JQuery
-• QUnit JS
-• JQuery.MockJSON
-• Change Tracking
-• And many out of the box things 
+* HTML 5 & CSS
+* Modernizer & LESS
+* Media Queries
+* Responsive Design
+* Angular JS
+* Toastr JS
+* JQuery
+* QUnit JS
+* JQuery.MockJSON
+* Change Tracking
+* And many out of the box things 
 
 Server Side Technologies
 
 ***
-• SQL Server
-• Entity Framework – Code First Approach
-• Repository Pattern
-• Unit of Work Pattern
-• Web API
-• JSON & AJAX
-• NuGet
-• Ninject IOC
-• Bundling & Minification
-• POCO Models 
+* SQL Server
+* Entity Framework – Code First Approach
+* Repository Pattern
+* Unit of Work Pattern
+* Web API
+* JSON & AJAX
+* NuGet
+* Ninject IOC
+* Bundling & Minification
+* POCO Models 
 
 ## Application Live Demo :- [Movie Review](http://moviereview.rahulsahay.com/#/)
 
@@ -152,8 +152,19 @@ Here, the highlighted one is the web project which is dependent on other infrast
 
 You can also test WEB API Live here at [API TEST](http://moviereview.rahulsahay.com/Web%20API%20Tests/MoviesAPI.html)
 
+***
+Check App overall performance:-
+
+![GT1](http://myview.rahulnivi.net/wp-content/uploads/2015/03/GT1.png)
+
+![GT2](http://myview.rahulnivi.net/wp-content/uploads/2015/03/GT2.png)
+
+![GT3](http://myview.rahulnivi.net/wp-content/uploads/2015/03/GT3.png)
+
 Thanks for joining me.
 
 Happy Coding
+
 Rahul Sahay
+
 [My View](http://myview.rahulnivi.net/)
